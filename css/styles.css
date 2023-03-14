@@ -1,0 +1,276 @@
+:root{
+    --amarillo: #e19f09; /*primario*/
+    --verde: #154425; /*secundario*/
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --gris: #4E4E4E;
+}
+
+/* Globales */
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /*si le agrego padding o border al elemento no afecta su tamano (lo agrega hacia adentro)*/
+}
+
+*, *::before, *::after{ /* Le aplica el codigo a todos los elementos ('*'), antes de todos los elementos ('*:before') y despues de todos los elementos ('*:after') */
+    box-sizing: inherit; /**/
+}
+
+body{
+    font-size: 16px; /* 1 rem = 10 px */
+    font-family: 'Titillium Web', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 0%, var(--blanco) 100%);
+}
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 2.8rem;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+.boton{
+    background-color: var(--verde);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    text-align: center;
+    border: none;
+}
+
+@media (max-width: 768px){
+    .boton{
+        width: 90%;
+    }    
+}
+
+.boton:hover{
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+    cursor: pointer;
+}
+
+.sombra{
+    -webkit-box-shadow: 2px 7px 30px 0px rgba(94,94,94,0.6);
+    -moz-box-shadow: 2px 7px 30px 0px rgba(94,94,94,0.6);
+    box-shadow: 2px 7px 30px 0px rgba(94,94,94,0.6);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Utilidades */
+
+
+
+/* Header */
+
+.titulo span{
+    font-size: 2rem;
+}
+
+/* Navegacion */
+
+.contenedor{
+    max-width: 120rem; /*si entra: 120 px, sino auto*/
+    margin: 0 auto; /* margin-top: 0; margin-bottom: 0; margin-left: auto; margin-right: auto; */
+}
+
+.nav-background{
+    background-color: var(--verde);
+}
+
+.navegacion-principal{
+    margin-top: 1.5rem; /*al estar abajo, esto "anula" el margin-top del codigo .contenedor{ margin: 0 auto;} */
+    margin-bottom: 1.5rem; /*igual que con margin-top*/
+    display: flex; /*nos habilita a usar flexbox*/
+    justify-content: space-between;
+}
+
+.navegacion-principal a{
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover{
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+}
+
+@media (max-width: 768px) {
+    .navegacion-principal{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Seccion1 */
+
+.hero{
+    background-image: url(../img/passport-2714675_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7); /*Sintaxis antigua*/
+    background-color: rgb(0 0 0 / 70%); /*Sintaxis nueva, no todos los navegadores la soportan*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /*Estas 4 lineas sirven para alinear horizontal y verticalmente todos los hijos de cualquier elemento*/
+}
+
+.contenido-hero h2, .contenido-hero p{
+    color: var(--blanco);
+}
+
+/* Servicios */
+
+.servicios{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+}
+
+@media (max-width: 768px){
+    .servicios{
+        display: block;
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3{
+    color: var(--verde);
+    font-weight: bold;
+}
+
+.servicio p{
+    line-height: 1.8;
+    text-align: center;
+}
+
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--amarillo);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* Formulario */
+
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem,100%);
+    margin: 0 auto; /*centro el formulario con esto y no con display flex porque su padre no tiene un display flex */
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.formulario fieldset{
+    border:none;
+}
+
+.formulario legend{
+    color: var(--amarillo);
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+.contenedor-campos{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    grid-template-rows: auto auto 20rem;
+}
+
+.campo:nth-child(3), .campo:nth-child(4) {
+    grid-column: 1 / 3;
+}
+
+@media (max-width: 768px){
+    .contenedor-campos{
+        display: block;
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;
+
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text{
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+}
+
+.enviar{
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px){
+    .enviar .boton {
+        width: 100%;
+    }
+}
+
+.campo textarea{
+    height: 20rem;
+}
+
+.campo:nth-child(5) {
+    margin-top: 3rem;
+    display: flex;
+}
+
+/* Footer */
+
+footer{
+    text-align: center;
+}
+
+/*  */
